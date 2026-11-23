@@ -29,6 +29,7 @@ const alphabet = [
   ["zebra", "The z sound"],
 ];
 
+const main = document.querySelector("#main");
 const grid = document.querySelector("#letters");
 const card = document.querySelector("#sound-card");
 const largeUpper = document.querySelector("#large-upper");
@@ -73,6 +74,8 @@ const letterButtons = alphabet.map(([word], index) => {
 });
 
 function selectLetter(index) {
+  if (selected === index) return;
+
   const upper = String.fromCharCode(65 + index);
   const [word, soundDescription] = alphabet[index];
   const sheet = index < 13 ? 1 : 2;
@@ -95,7 +98,7 @@ async function playSound() {
   const attempt = ++playbackAttempt;
   playbackStatus.hidden = true;
   audio.pause();
-  card.removeAttribute("data-playing");
+  main.removeAttribute("data-playing");
 
   if (loaded !== selected || audio.error) {
     const letter = String.fromCharCode(97 + selected);
@@ -107,11 +110,11 @@ async function playSound() {
     audio.currentTime = 0;
     await audio.play();
     if (attempt === playbackAttempt && !audio.paused) {
-      card.dataset.playing = "";
+      main.dataset.playing = "";
     }
   } catch {
     if (attempt === playbackAttempt) {
-      playbackStatus.textContent = "Couldn’t play the sound. Tap Play sound to try again.";
+      playbackStatus.textContent = "Couldn’t play the sound. Tap the letter again.";
       playbackStatus.hidden = false;
     }
   }
@@ -142,7 +145,8 @@ setupPreference(picturesSwitch, "pictures", (enabled) => {
   card.toggleAttribute("data-hide-pictures", !enabled);
 });
 
-selectLetter(0);
 playButton.addEventListener("click", playSound);
-audio.addEventListener("ended", () => card.removeAttribute("data-playing"));
+audio.addEventListener("pause", () => {
+  if (audio.paused) main.removeAttribute("data-playing");
+});
 document.querySelector("#open-settings").addEventListener("click", () => settings.showModal());

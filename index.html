@@ -37,7 +37,7 @@
 
     <div class="introduction">
       <h1>Tap, listen, learn.</h1>
-      <p>Choose a letter to hear its sound.</p>
+      <p>Tap a letter to hear its sound.</p>
     </div>
 
     <section class="sound-card" id="sound-card" aria-labelledby="example-title">
@@ -55,18 +55,12 @@
           Play sound
         </button>
       </div>
-      <div class="example-picture" id="example-picture" aria-hidden="true"></div>
+      <div class="example-picture" id="example-picture" data-sheet="1" aria-hidden="true"></div>
     </section>
     <p class="playback-status" id="playback-status" role="status" hidden></p>
 
     <section class="alphabet" aria-labelledby="alphabet-title">
-      <div class="alphabet-header">
-        <h2 id="alphabet-title">The alphabet</h2>
-        <label class="switch-label">
-          <span>Uppercase &amp; lowercase</span>
-          <input class="switch" type="checkbox" role="switch" id="show-lowercase" checked>
-        </label>
-      </div>
+      <h2 id="alphabet-title">The alphabet</h2>
       <div class="letters" id="letters"></div>
       <noscript><p>Enable JavaScript in your browser to play the letter sounds.</p></noscript>
     </section>
@@ -77,7 +71,11 @@
   <dialog id="settings" aria-labelledby="settings-title">
     <div class="dialog-content">
       <h2 id="settings-title">Settings</h2>
-      <label class="switch-label picture-setting">
+      <label class="switch-label">
+        <span>Show lowercase letters</span>
+        <input class="switch" type="checkbox" role="switch" id="show-lowercase" checked>
+      </label>
+      <label class="switch-label">
         <span>Show example pictures</span>
         <input class="switch" type="checkbox" role="switch" id="show-pictures" checked>
       </label>

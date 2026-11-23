@@ -1,8 +1,8 @@
 # Letter Sounds
 
-Tap a letter from A to Z to hear a common English phonics sound. The selected letter, example word, and illustration appear together. Tap the letter again or use **Play sound** to repeat it.
+Tap a letter from A to Z to hear one short English phonics sound. The selected letter, example word, and illustration appear together. Tap the letter again or use **Play sound** to repeat it.
 
-The app teaches short vowel sounds, hard C and G, Q with U as in *queen*, and X as in *fox*. The alphabet switch hides lowercase letters. **Settings** lets you hide pictures. These preferences stay on the current browser when local storage is available.
+The app teaches short vowel sounds, hard C and G, Q with U as in *queen*, and X as in *fox*. In **Settings**, you can hide lowercase letters or pictures. These preferences stay on the current browser when local storage is available.
 
 ## Open or host the app
 
@@ -13,4 +13,4 @@ The app teaches short vowel sounds, hard C and G, Q with U as in *queen*, and X 
 
 ## Credits
 
-Phonics sounds by [Phonicademy](https://phonicademy.com/audio-license), used within this app under its audio license. The illustrations were generated for this app. Andika and Nunito are distributed under the SIL Open Font License. Their license texts are in `assets/fonts/`.
+Phonics sounds by [Phonicademy](https://phonicademy.com/audio-license), edited into short, single-play clips for this app. The illustrations were generated for this app. Andika and Nunito are distributed under the SIL Open Font License. Their license texts are in `assets/fonts/`.
