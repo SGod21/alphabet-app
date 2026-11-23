@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#faf8f3">
+  <meta name="description" content="Tap any letter from A to Z to hear its English phonics sound.">
+  <title>Letter Sounds</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" href="data:,">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="wordmark">
+        <span class="brand-icon" aria-hidden="true">
+          A
+          <svg viewBox="0 0 14 20" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+            <path d="M3 7c1.5 1.7 1.5 4.3 0 6m4-10c3.6 3.9 3.6 10.1 0 14"/>
+          </svg>
+        </span>
+        <span>Letter Sounds</span>
+      </div>
+      <button class="settings-button" id="open-settings" type="button" aria-haspopup="dialog">
+        <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M9.5 3.5h5l.6 2.4 2 .9 2.2-1.2 2.5 4.3-1.8 1.7v2.3l1.8 1.7-2.5 4.3-2.2-1.2-2 .9-.6 2.4h-5l-.6-2.4-2-.9-2.2 1.2-2.5-4.3L4 13.9v-2.3L2.2 9.9l2.5-4.3 2.2 1.2 2-.9z" transform="translate(1.1 .6) scale(.91)"/>
+          <circle cx="12" cy="12" r="3.2"/>
+        </svg>
+        Settings
+      </button>
+    </div>
+  </header>
+
+  <main class="shell" id="main">
+    <div class="margin-stars" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+
+    <div class="introduction">
+      <h1>Tap, listen, learn.</h1>
+      <p>Choose a letter to hear its sound.</p>
+    </div>
+
+    <section class="sound-card" id="sound-card" aria-labelledby="example-title">
+      <div class="letter-preview" aria-hidden="true"><span id="large-upper">A</span><span class="lowercase" id="large-lower">a</span></div>
+      <div class="sound-details">
+        <div class="example" aria-live="polite" aria-atomic="true">
+          <h2 id="example-title"><span id="example-prefix">A is for</span> <strong id="example-word">apple</strong></h2>
+          <p id="sound-description">Short a sound</p>
+        </div>
+        <button class="play-button" id="play-sound" type="button">
+          <svg aria-hidden="true" viewBox="0 0 32 28">
+            <path fill="currentColor" d="M3 8h5l6-5a1.4 1.4 0 0 1 2.3 1v20a1.4 1.4 0 0 1-2.3 1l-6-5H3a2 2 0 0 1-2-2v-8a2 2 0 0 1 2-2Z"/>
+            <path class="sound-waves" d="M21 9a7.5 7.5 0 0 1 0 10m4-14a13 13 0 0 1 0 18" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"/>
+          </svg>
+          Play sound
+        </button>
+      </div>
+      <div class="example-picture" id="example-picture" aria-hidden="true"></div>
+    </section>
+    <p class="playback-status" id="playback-status" role="status" hidden></p>
+
+    <section class="alphabet" aria-labelledby="alphabet-title">
+      <div class="alphabet-header">
+        <h2 id="alphabet-title">The alphabet</h2>
+        <label class="switch-label">
+          <span>Uppercase &amp; lowercase</span>
+          <input class="switch" type="checkbox" role="switch" id="show-lowercase" checked>
+        </label>
+      </div>
+      <div class="letters" id="letters"></div>
+      <noscript><p>Enable JavaScript in your browser to play the letter sounds.</p></noscript>
+    </section>
+
+    <footer class="practice-note">Listen and repeat at your own pace.</footer>
+  </main>
+
+  <dialog id="settings" aria-labelledby="settings-title">
+    <div class="dialog-content">
+      <h2 id="settings-title">Settings</h2>
+      <label class="switch-label picture-setting">
+        <span>Show example pictures</span>
+        <input class="switch" type="checkbox" role="switch" id="show-pictures" checked>
+      </label>
+      <p class="credits">Phonics sounds by <a href="https://phonicademy.com/audio-license" target="_blank" rel="noopener noreferrer">Phonicademy</a>.</p>
+      <form method="dialog">
+        <button class="done-button" type="submit" autofocus>Done</button>
+      </form>
+    </div>
+  </dialog>
+
+  <audio id="phonics-audio" preload="none"></audio>
+</body>
+</html>
