@@ -156,19 +156,23 @@ button:focus-visible, input:focus-visible, a:focus-visible {
   display: flex;
   align-items: center;
   justify-content: center;
+  gap: clamp(0.5rem, 1.8vw, 1.35rem);
   width: clamp(6.65rem, 14.3vw, 13.75rem);
   height: clamp(6.5rem, 13.9vw, 13.3rem);
-  border-radius: 0.245em;
+  border-radius: 0.3em;
   background: var(--letter-block);
   font-family: Andika, Nunito, sans-serif;
   font-size: clamp(3.35rem, 8vw, 7.65rem);
   font-weight: 700;
   line-height: 1;
-  letter-spacing: -0.045em;
+  letter-spacing: 0.04em;
   padding-bottom: 0.08em;
 }
 
-.letter-preview .lowercase { font-size: 0.88em; }
+.letter-preview .lowercase {
+  font-size: 0.88em;
+  margin-left: 0.15em;
+}
 
 .sound-details { padding-block: 1rem; }
 
@@ -238,6 +242,81 @@ button:focus-visible, input:focus-visible, a:focus-visible {
   font-weight: 800;
 }
 
+/* ── Teacher Notes ─────────────────────────────────── */
+.teacher-notes {
+  margin-block: clamp(1rem, 1.8vw, 1.75rem) 0;
+  padding: clamp(1rem, 2vw, 1.5rem) clamp(1.1rem, 2.5vw, 2rem);
+  border: 2px dashed #c9b87a;
+  border-radius: 1.25rem;
+  background: #fffbea;
+}
+
+.teacher-notes h2 {
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+  margin: 0 0 0.9rem;
+  font-size: clamp(1.1rem, 2vw, 1.6rem);
+  font-weight: 900;
+  color: #7a5c00;
+  letter-spacing: -0.02em;
+}
+
+.teacher-notes h2 svg {
+  width: 1em;
+  height: 1em;
+  flex-shrink: 0;
+  stroke: #a07800;
+}
+
+.teacher-notes-body {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(0.75rem, 1.5vw, 1.25rem);
+}
+
+.teacher-note-block {
+  padding: clamp(0.7rem, 1.2vw, 1rem) clamp(0.85rem, 1.5vw, 1.2rem);
+  border-radius: 0.85rem;
+}
+
+.teacher-note-action { background: #fff9d6; border: 1px solid #e8d87a; }
+.teacher-note-asd    { background: #eef6ff; border: 1px solid #97c4f0; }
+
+.note-label {
+  display: block;
+  margin-bottom: 0.4em;
+  font-size: clamp(0.8rem, 1.3vw, 1rem);
+  font-weight: 900;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: #7a5c00;
+}
+
+.teacher-note-asd .note-label { color: #1a4a7a; }
+
+.teacher-note-block p {
+  margin: 0;
+  font-size: clamp(0.88rem, 1.5vw, 1.15rem);
+  font-weight: 650;
+  line-height: 1.55;
+  color: #3a2e00;
+}
+
+.teacher-note-asd p { color: #12294a; }
+
+@media (max-width: 52rem) {
+  .teacher-notes-body { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 39rem) {
+  .teacher-notes {
+    padding: 0.85rem 0.95rem;
+    border-radius: 1rem;
+  }
+}
+/* ────────────────────────────────────────────────────── */
+
 .alphabet h2 {
   margin-block: clamp(0.9rem, 1.6vw, 1.5rem) clamp(0.6rem, 1.75vw, 1.65rem);
   font-size: clamp(1.55rem, 3.05vw, 2.85rem);
@@ -296,8 +375,9 @@ button:focus-visible, input:focus-visible, a:focus-visible {
   display: flex;
   align-items: center;
   justify-content: center;
+  gap: clamp(0.35rem, 0.75vw, 0.65rem);
   min-height: clamp(3.6rem, 6.4vw, 6.1rem);
-  padding: 0 0.06em 0.09em;
+  padding: 0 0.1em 0.09em;
   border: 1px solid var(--tile-edge);
   border-radius: clamp(0.7rem, 1.2vw, 1.05rem);
   background: var(--tile);
@@ -306,10 +386,13 @@ button:focus-visible, input:focus-visible, a:focus-visible {
   font-size: clamp(1.65rem, 3.45vw, 3.2rem);
   font-weight: 700;
   line-height: 1;
-  letter-spacing: -0.02em;
+  letter-spacing: 0.03em;
 }
 
-.letter .lowercase { font-size: 0.89em; }
+.letter .lowercase {
+  font-size: 0.89em;
+  margin-left: 0.15em;
+}
 
 .letter[aria-pressed="true"] {
   border-color: var(--fern);

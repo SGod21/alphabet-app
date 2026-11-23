@@ -6,8 +6,13 @@
   <meta name="theme-color" content="#faf8f3">
   <meta name="description" content="Tap any letter from A to Z to hear its English phonics sound.">
   <title>Letter Sounds</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="Letter Sounds">
+  <link rel="apple-touch-icon" href="assets/icon-192.png">
+  <link rel="manifest" href="manifest.json">
   <link rel="stylesheet" href="styles.css">
-  <link rel="icon" href="data:,">
+  <link rel="icon" type="image/png" href="assets/icon-192.png">
   <script src="app.js" defer></script>
 </head>
 <body>
@@ -45,7 +50,7 @@
       <div class="sound-details">
         <div class="example" aria-live="polite" aria-atomic="true">
           <h2 id="example-title"><span id="example-prefix">A is for</span> <strong id="example-word">apple</strong></h2>
-          <p id="sound-description">Short a sound</p>
+          <p id="sound-description">/a/ — short &lsquo;a&rsquo;, mouth open wide like taking a big bite of an apple</p>
         </div>
         <button class="play-button" id="play-sound" type="button">
           <svg aria-hidden="true" viewBox="0 0 32 28">
@@ -58,6 +63,23 @@
       <div class="example-picture" id="example-picture" data-sheet="1" aria-hidden="true"></div>
     </section>
     <p class="playback-status" id="playback-status" role="status" hidden></p>
+
+    <section class="teacher-notes" aria-labelledby="teacher-notes-title">
+      <h2 id="teacher-notes-title">
+        <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg>
+        Teacher Notes
+      </h2>
+      <div class="teacher-notes-body">
+        <div class="teacher-note-block teacher-note-action">
+          <span class="note-label">🎬 Action</span>
+          <p id="teacher-action">Mime holding a big juicy apple and taking a big crunchy bite saying /a/! /a/! Or wiggle fingers up your forearm like ants crawling.</p>
+        </div>
+        <div class="teacher-note-block teacher-note-asd">
+          <span class="note-label">🧩 ASD Tip</span>
+          <p id="teacher-asd">For tactile-sensitive children, demonstrate the ant crawling on your own arm or let them tap fingers on a table. A plastic toy apple gives a concrete visual and tactile anchor.</p>
+        </div>
+      </div>
+    </section>
 
     <section class="alphabet" aria-labelledby="alphabet-title">
       <h2 id="alphabet-title">The alphabet</h2>
@@ -87,5 +109,12 @@
   </dialog>
 
   <audio id="phonics-audio" preload="none"></audio>
+  <script>
+    if ("serviceWorker" in navigator) {
+      window.addEventListener("load", () => {
+        navigator.serviceWorker.register("sw.js").catch(() => {});
+      });
+    }
+  </script>
 </body>
 </html>
